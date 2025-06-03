@@ -1,11 +1,11 @@
-# 📬 Boîte aux lettres intelligente – Détection automatique de courrier et colis
+# Systeme de boîte aux lettres intelligente – Détection automatique de courrier et colis
 
-## 🧠 Idée du projet
+## Idée du projet
 
 Avec mon camarade, on s’est demandé comment éviter de faire des allers-retours inutiles à la boîte aux lettres juste pour vérifier s’il y a du courrier ou un colis.  
 On a donc eu l’idée de concevoir un petit dispositif universel, facile à fixer au plafond de n’importe quelle boîte aux lettres, qui peut détecter automatiquement s’il y a eu un dépôt, et surtout, s’il s’agit d’une lettre ou d’un colis.
 
-## ⚙️ Comment ça fonctionne ?
+## Comment ça fonctionne ?
 
 Notre système repose sur un capteur à ultrasons qui mesure en permanence la distance entre le capteur et le fond de la boîte.
 
@@ -15,7 +15,7 @@ Ensuite, il effectue une mesure toutes les 10 secondes. À chaque mesure, il com
 
 Mais pour éviter les erreurs d’interprétation, on a mis en place une logique de confirmation sur 3 mesures successives identiques, pour s’assurer à 100 % qu’il s’agit bien d’un courrier ou d’un colis.
 
-## ❓ Pourquoi cette logique ?
+## Pourquoi cette logique ?
 
 Dans une boîte aux lettres classique, les lettres sont introduites par le haut, ce qui peut temporairement créer un grand écart de distance détecté par le capteur.  
 Si on envoyait directement une alerte à ce moment-là, le système croirait que c’est un colis à cause de cette variation brutale.
@@ -33,7 +33,7 @@ Si une première mesure semble indiquer un colis (valeur > 5 cm), mais que les d
 
 L’objectif, c’est d’attendre trois mesures consécutives dans le même intervalle, pour être certain que l’objet est bien en place, et que ce n’est pas une fausse alerte due à un simple mouvement temporaire (comme une lettre qui tombe).
 
-## 📡 Envoi de l’alerte
+## Envoi de l’alerte
 
 Une fois que le système a détecté trois fois de suite la même distance dans un même intervalle (colis ou lettre), il envoie un message via **LoRa**.
 
@@ -44,18 +44,18 @@ Zapier, de son côté, se charge d’envoyer un email automatique à l’utilisa
 - “Lettre détectée dans votre boîte aux lettres”
 - “Colis détecté dans votre boîte aux lettres”
 
-## 🔋 Optimisation de la consommation d’énergie
+## Optimisation de la consommation d’énergie
 
 On a aussi réfléchi à l’aspect énergétique du projet.  
 Comme on sait que les facteurs passent en général le matin, on a intégré dans notre programme une plage horaire de fonctionnement limitée :  
-➡️ Le système est actif uniquement **entre 6h00 et 14h00**.
+--> Le système est actif uniquement **entre 6h00 et 14h00**.
 
 Cela permet d’économiser de l’énergie, en évitant de faire des mesures inutiles le reste de la journée, quand les livraisons sont très rares.
 
 Mais attention :  
 Si jamais le système ne parvient pas à déterminer correctement l’heure (par exemple en cas de bug ou d’absence de synchronisation), il continue quand même à fonctionner en continu pour ne rater aucune détection importante.
 
-## 🧰 Matériel requis
+## Matériel requis
 
 - 1 Carte **UCA Education Board** (compatible LoRa)  
 - 1 Capteur à ultrasons **HC-SR04**  
@@ -65,7 +65,7 @@ Si jamais le système ne parvient pas à déterminer correctement l’heure (par
 - Un ordinateur pour la programmation  
 - Un compte **Zapier**
 
-## 🔌 Schéma de câblage
+## Schéma de câblage
 
 > Sorties utilisées sur le capteur HC-SR04 :
 
@@ -76,7 +76,7 @@ Si jamais le système ne parvient pas à déterminer correctement l’heure (par
 
 ![Schéma](schema_branchement)
 
-## 🧑‍💻 Installation du code
+## Installation du code
 
 1. Installer l’IDE Arduino.  
 2. Installer les bibliothèques suivantes via le **Gestionnaire de bibliothèques** dans l’IDE :
@@ -87,22 +87,22 @@ Si jamais le système ne parvient pas à déterminer correctement l’heure (par
    - `RTClib`  
    - `NewPing`
 
-> Si des erreurs apparaissent ou que vous ne trouvez pas certaines bibliothèques ou la bonne carte, **vous pouvez consulter le GitHub du professeur** :  
-🔗 https://github.com/FabienFerrero/UCA21  
+> Si des erreurs apparaissent ou que vous ne trouvez pas certaines bibliothèques ou la bonne carte, **vous pouvez consulter le GitHub du professeur** :
+ https://github.com/FabienFerrero/UCA21  
 Vous y trouverez toutes les infos nécessaires sur **l’installation de la carte, les bibliothèques, et les extensions**.
 
-## 📤 Configuration de Zapier
+## Configuration de Zapier
 
-### 🧩 Créer un webhook
+### Créer un webhook
 
 1. Va sur [zapier.com](https://zapier.com) et connecte-toi.  
 2. Clique sur **“Create Zap”**.  
 3. Dans le déclencheur (**Trigger**), choisis :  
-   ➡️ **Webhooks by Zapier**  
-   ➡️ puis **Catch Hook**  
+   --> **Webhooks by Zapier**  
+   --> puis **Catch Hook**  
 4. Zapier te fournit une **URL personnalisée** (ex : `https://hooks.zapier.com/...`) → **copie cette URL**.
 
-## 🌐 Connexion à The Things Stack Sandbox
+## Connexion à The Things Stack Sandbox
 
 > Pour relier le système LoRa à Zapier, on utilise **The Things Stack Sandbox**.
 
@@ -117,14 +117,14 @@ Voici les étapes :
 7. Colle l’**URL de Zapier** obtenue précédemment.  
 8. Sauvegarde.
 
-## ✅ Dernière étape
+## Dernière étape
 
 Maintenant que vous avez réalisé toutes ces étapes-là,  
 il ne vous reste plus qu’à **copier-coller le code Arduino fourni**, le **téléverser dans votre carte**,  
 et **raccorder proprement les branchements (A3, A2, GND, 5V)** comme indiqué plus haut.  
-Et voilà, **le système est prêt à fonctionner**. 🎉📦📨
+Et voilà, **le système est prêt à fonctionner**. 
 
-## 🚀 Idées d’améliorations
+## Idées d’améliorations
 
 - Ajouter une batterie rechargeable avec **panneau solaire**  
 - Ajouter une **synchronisation automatique de l’heure** (via RTC ou GPS)  
@@ -132,7 +132,8 @@ Et voilà, **le système est prêt à fonctionner**. 🎉📦📨
 - Ajouter un **indicateur LED ou buzzer dans la maison**  
 - Utiliser **plusieurs capteurs** pour différencier plusieurs types de dépôts
 
-## 👥 Auteurs
+## Auteurs
 
-Projet réalisé par **deux étudiants en informatique**.  
+Projet réalisé par **deux étudiants en licence 1 informatique**.  
 N’hésitez pas à forker, tester et améliorer !
+
