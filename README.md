@@ -74,7 +74,7 @@ Si jamais le système ne parvient pas à déterminer correctement l’heure (par
 - **VCC** → 5V  
 - **GND** → GND
 
-(Schéma visuel à insérer ici)
+![Schéma](schema_branchement)
 
 ## 🧑‍💻 Installation du code
 
