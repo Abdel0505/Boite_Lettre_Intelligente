@@ -126,11 +126,10 @@ Et voilà, **le système est prêt à fonctionner**.
 
 ## Idées d’améliorations
 
-- Ajouter une batterie rechargeable avec **panneau solaire**  
-- Ajouter une **synchronisation automatique de l’heure** (via RTC ou GPS)  
+- Ajouter une batterie rechargeable avec **panneau solaire**    
 - Intégrer la détection dans une **application mobile**  
 - Ajouter un **indicateur LED ou buzzer dans la maison**  
-- Utiliser **plusieurs capteurs** pour différencier plusieurs types de dépôts
+- Utiliser **une camera ** pour différencier plus précisément le types de dépôts
 
 ## Auteurs
 
