@@ -129,7 +129,7 @@ Et voilà, **le système est prêt à fonctionner**.
 - Ajouter une batterie rechargeable avec **panneau solaire**    
 - Intégrer la détection dans une **application mobile**  
 - Ajouter un **indicateur LED ou buzzer dans la maison**  
-- Utiliser **une camera ** pour différencier plus précisément le types de dépôts
+- Utiliser **une camera** pour différencier plus précisément le types de dépôts
 
 ## Auteurs
 
