@@ -60,8 +60,8 @@ Si jamais le système ne parvient pas à déterminer correctement l’heure (par
 - 1 Carte **UCA Education Board** (compatible LoRa)  
 - 1 Capteur à ultrasons **HC-SR04**  
 - 1 Module récepteur **LoRa**  
-- Câbles de connexion (Dupont)  
-- Une alimentation (pile ou batterie Li-Ion)  
+- Câbles de connexion 
+- Une alimentation (systéme de pile ou batterie Li-Ion)  
 - Un ordinateur pour la programmation  
 - Un compte **Zapier**
 
@@ -122,7 +122,7 @@ Voici les étapes :
 Maintenant que vous avez réalisé toutes ces étapes-là,  
 il ne vous reste plus qu’à **copier-coller le code Arduino fourni**, le **téléverser dans votre carte**,  
 et **raccorder proprement les branchements (A3, A2, GND, 5V)** comme indiqué plus haut.  
-Et voilà, **le système est prêt à fonctionner**. 
+Et voilà, **le système est prêt à fonctionner** et **il suffira d’appuyer sur le bouton RESET pour réinitialiser la distance initiale à zéro, après un déplacement** ou **de le Débrancher puis rebranché**. 
 
 ## Idées d’améliorations
 
